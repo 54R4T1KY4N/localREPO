@@ -20,11 +20,11 @@ But it's not just about control; it's about security. By signing packages with a
 
 This endeavor is more than just technical tweaks; it's about building an environment where your systems thrive, where administrators have the tools to manage with finesse, and where your client servers can confidently march forward, knowing that the local repository is their trusted source for updates, enhancements, and essential software. It's a journey towards a better-managed infrastructure, where efficiency, control, and security come together to form the backbone of a robust computing ecosystem.
 
-    Server Repository Configuration Script localREPO_srv.sh
+        Server Repository Configuration Script localREPO_srv.sh
 
 The Server Repository Configuration Script sets up a local YUM/DNF repository on a specified server. This local repository allows you to host custom packages, updates, and software for distribution within your infrastructure. By having a local repository, you can control package versions, improve update management, and enhance overall system reliability.
 
-    How to use
+          How to use
 
 * Prerequisites: Ensure that you have root (administrative) privileges on the server where you want to host the local repository.
 * Customization: Before running the script, modify the following configuration parameters within the script to match your local repository setup:
@@ -33,18 +33,18 @@ Adjust the list of repositories to sync (reposync commands) based on your needs.
 * Execution: Make the script executable with the command chmod +x setup-server-repo.sh. Run the script with superuser privileges (root) using the command sudo ./setup-server-repo.sh.
 * Verification: Once the script completes, the local repository is set up on the server, and packages will be synced based on the specified repositories. Client servers can now access this repository for updates and software installation.
 
-     Security Considerations
+          Security Considerations
     
 * GPG Key: The script generates a GPG key for signing the repository. Ensure that the generated key is securely stored and protected with a strong passphrase.
 * Network Access: Client servers should have network access to the server hosting the local repository. Ensure that the repository URL is accessible to the client servers.
 * Trustworthy Packages: Ensure that the packages you add to the repository are from trusted sources and have not been tampered with.
 * Maintenance: Regularly update and maintain your local repository to include security updates and new software versions.
 
-     Client Repository Configuration Script localREPO_client.sh
+       Client Repository Configuration Script localREPO_client.sh
 
 The Client Repository Configuration Script simplifies the process of configuring client servers to use a custom local YUM/DNF repository for receiving updates and packages. By setting up a local repository, you can improve update speed, reduce external network traffic, and ensure consistent package availability across your infrastructure.
 
-    How to use
+         How to use
 
 * Prerequisites: Ensure that you have root (administrative) privileges on the client server where you plan to run this script.
 * Customization: Before running the script, modify the following configuration parameters within the script to match your local repository setup:
@@ -54,7 +54,7 @@ Adjust the gpg_key_path variable to the correct path of the GPG key file on the 
 * Execution: Make the script executable with the command chmod +x configure-client-repo.sh. Run the script with superuser privileges (root) using the command sudo ./configure-client-repo.sh.
 * Verification: Once the script completes, the client server is configured to use the local repository for updates. You can verify the setup by running standard update commands like yum update or dnf update, depending on your system.
 
-    Security Considerations
+         Security Considerations
     
 * GPG Key: Ensure that the GPG key used for signing the repository is securely hosted and accessible via the specified URL. Properly securing the GPG key is crucial to prevent unauthorized modifications to repository metadata.
 * Network Access: The client server should have network access to the local repository server and the GPG key URL. Verify that DNS resolution is working, and the server can reach the necessary resources.
